@@ -152,3 +152,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(255,255,255,.
 .pnav button:hover{border-color:var(--verde);color:var(--verde)}
 .pnav .home-link{background:var(--surface)}
 .foot{text-align:center;color:var(--muted2);font-family:'JetBrains Mono';font-size:11px;margin-top:30px;line-height:1.7}
+
+
+/* ===== Tela inicial (hero) ===== */
+.hero{position:relative;overflow:hidden;border-radius:26px;border:1px solid var(--line);
+  background:
+    radial-gradient(120% 130% at 86% 0%, rgba(0,167,167,.16), transparent 55%),
+    radial-gradient(120% 130% at 0% 100%, rgba(46,125,50,.13), transparent 55%),
+    linear-gradient(180deg,#ffffff 0%, #f4f8fb 100%);
+  padding:48px 26px 42px;text-align:center;margin-bottom:24px;
+  box-shadow:0 16px 40px rgba(13,43,69,.06)}
+.hero .eyebrow{justify-content:center;margin-bottom:18px}
+.hero .hero-logo{max-width:460px;width:82%;height:auto;display:block;margin:4px auto 18px;
+  filter:drop-shadow(0 10px 22px rgba(13,43,69,.12))}
+.hero .hsub{margin:0 auto;text-align:center}
+.hero .punch{border-left:none;padding-left:0;margin:16px auto 0;max-width:540px;text-align:center}
+.hero .ring{position:absolute;border-radius:50%;border:1.5px dashed rgba(0,167,167,.28);pointer-events:none;
+  width:280px;height:280px;right:-72px;top:-84px}
+.hero .ring.r2{width:150px;height:150px;right:46px;top:14px;border-color:rgba(0,119,204,.22)}
+.hero .hdot{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--verde);
+  right:80px;top:40px;box-shadow:0 4px 12px rgba(46,125,50,.4);pointer-events:none}
+@media(max-width:560px){.hero{padding:34px 18px 30px}.hero .ring,.hero .hdot{display:none}}
