@@ -54,5 +54,5 @@ O projeto é estruturado em uma interface SPA (*Single Page Application*) modern
 
 ---
 <p align="center">
-  Desenvolvido por <b>InovaTech</b> como parte do projeto de inovação e tecnologia agroecológica.
+  Desenvolvido por <b>InovaLab</b> como parte do projeto de inovação e tecnologia agroecológica.
 </p>
