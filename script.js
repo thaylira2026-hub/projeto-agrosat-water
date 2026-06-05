@@ -1,0 +1,9 @@
+const PAGES=[["inicio","Início"],["problema","Problema"],["solucao","Solução"],["diferencial","Diferencial"],["mercado","Mercado"],["custo","Custo"],["chatbot","Chatbot"],["banco","Banco"],["pedido","Pedido"]];
+const nl=document.getElementById('navlinks');
+PAGES.forEach(([id,label])=>{const b=document.createElement('button');b.textContent=label;b.dataset.id=id;b.onclick=()=>go(id);nl.appendChild(b);});
+PAGES.forEach(([id],i)=>{const sec=document.getElementById(id);const nav=sec.querySelector('.pnav');if(!nav)return;const prev=PAGES[i-1],next=PAGES[i+1];const left=document.createElement('button');if(prev){left.textContent='← '+prev[1];left.onclick=()=>go(prev[0]);}else{left.textContent='⌂ Início';left.className='home-link';left.onclick=()=>go('inicio');}const right=document.createElement('button');if(next){right.textContent=next[1]+' →';right.onclick=()=>go(next[0]);}else{right.textContent='⌂ Voltar ao Início';right.className='home-link';right.onclick=()=>go('inicio');}nav.appendChild(left);nav.appendChild(right);});
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const el=document.getElementById(id);if(!el)return;el.classList.add('active');document.querySelectorAll('#navlinks button').forEach(b=>b.classList.toggle('active',b.dataset.id===id));window.scrollTo({top:0,behavior:'auto'});if(location.hash!=='#'+id)history.pushState(null,'','#'+id);if(id==='custo')animateBars();if(id==='chatbot')scrollChat();}
+function animateBars(){setTimeout(()=>document.querySelectorAll('#bars .bar').forEach(b=>{b.style.height=b.dataset.h+'%';}),120);}
+function scrollChat(){const c=document.getElementById('chat');if(!c)return;let p=0;const t=setInterval(()=>{p+=8;c.scrollTop=p;if(p>=c.scrollHeight)clearInterval(t);},40);}
+window.addEventListener('popstate',()=>{const id=location.hash.slice(1)||'inicio';go(id);});
+const start=location.hash.slice(1);if(start&&document.getElementById(start))go(start);else go('inicio');
